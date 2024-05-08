@@ -1,0 +1,24 @@
+{
+  "name": "market",
+  "version": "1.0.0",
+  "description": "Hi everybody",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/saleingservices/marketBack.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/saleingservices/marketBack/issues"
+  },
+  "homepage": "https://github.com/saleingservices/marketBack#readme",
+  "dependencies": {
+    "express": "^4.19.2"
+  }
+}
