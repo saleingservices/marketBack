@@ -25,6 +25,9 @@ module.exports = (connection, Sequelize) => {
         orderStatus: {
             type: Sequelize.INTEGER,
         },
+        orderAddressId: {
+            type: Sequelize.INTEGER,
+        },
         orderShippingPrice: {
             type: Sequelize.STRING,
         },

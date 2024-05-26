@@ -41,7 +41,7 @@ db.user = require('./user.model.js')(connection, Sequelize)
 // category relations
 db.category.hasMany(db.category, {
     foreignKey: 'parentId',
-    as: 'categoryChildren'
+    as: 'categoryChildrens'
 })
 db.category.belongsTo(db.category, {
     foreignKey: 'parentId',
@@ -86,62 +86,147 @@ db.product.belongsToMany(db.spec, {
 })
 
 // product and publish relation product-tag
-db.productPublish.hasOne(db.product, {
-    through: 'product_publish',
+db.productPublish.belongsTo(db.product, {
     foreignKey: 'PP_productId',
-    as : 'product',
+    as: 'products',
 })
-db.product.belongsTo(db.productPublish, {
-    through: 'product_publish',
-    foreignKey: 'productId',
-    as : 'publish'
+db.product.hasMany(db.productPublish, {
+    foreignKey: 'PP_productId',
+    as: 'publish'
 })
 
 // product and identity relation product-identity
-db.productIdentity.hasOne(db.product, {
-    through: 'product_identity',
+db.productIdentity.belongsTo(db.product, {
     foreignKey: 'PI_productId',
     as: 'products',
 })
-db.product.belongsTo(db.productIdentity, {
-    through: 'product',
-    foreignKey: 'productId',
+db.product.hasMany(db.productIdentity, {
+    foreignKey: 'PI_productId',
     as: 'identities',
 })
 
 
 // order and orderDatail relation 
-db.orderDetail.hasOne(db.order, {
-    through: 'order_detail',
+db.orderDetail.belongsTo(db.order, {
     foreignKey: 'OD_orderId',
-    as : 'order',
+    as: 'order',
 })
-db.order.belongsTo(db.orderDetail, {
-    through: 'order_detail',
-    foreignKey: 'orderId',
-    as : 'details'
+db.order.hasMany(db.orderDetail, {
+    foreignKey: 'OD_orderId',
+    as: 'details'
 })
 
 // user and shop relation 
-db.shop.hasOne(db.user, {
-    through: 'user',
-    foreignKey: 'userId',
-    as : 'owner',
-})
 db.user.belongsTo(db.shop, {
     foreignKey: 'userShopId',
-    as : 'shop'
+    as: 'shop'
 })
-db.shop.belongsToMany(db.user, {
-    through: 'user',
+
+db.shop.hasMany(db.user, {
     foreignKey: 'userShopId',
-    as : 'users'
+    as: 'users'
 })
 
 
+// city and states relation
+db.state.hasMany(db.city, {
+    foreignKey: 'cityStateId',
+    as: 'city',
+})
+db.city.belongsTo(db.state, {
+    foreignKey: 'cityStateId',
+    as: 'state',
+})
 
 
+// user and addres relation
+db.user.belongsToMany(db.city, {
+    through: 'address',
+    foreignKey: 'addressUserId',
+    as: 'UserAddress',
+})
 
+db.city.belongsToMany(db.user, {
+    through: 'address',
+    foreignKey: 'addressCityId',
+    as: 'users',
+})
+
+// product and order relation order-detail
+db.order.belongsToMany(db.product, {
+    through: 'order_detail',
+    foreignKey:'OD_orderId',
+    as: 'products',
+})
+db.product.belongsToMany(db.order, {
+    through: 'order_detail',
+    foreignKey:'OD_productId',
+    as: 'orders',
+})
+
+
+// product and orderDatail relation 
+db.orderDetail.belongsTo(db.product, {
+    foreignKey: 'OD_productId',
+    as: 'product',
+})
+db.product.hasMany(db.orderDetail, {
+    foreignKey: 'OD_productId',
+    as: 'orderDetails'
+})
+
+
+// order and user relation 
+db.order.belongsTo(db.user, {
+    foreignKey: 'orderUserId',
+    as: 'user',
+})
+db.user.hasMany(db.order, {
+    foreignKey: 'orderUserId',
+    as: 'orders'
+})
+
+// order and shop relation 
+db.order.belongsTo(db.shop, {
+    foreignKey: 'orderShopId',
+    as: 'shop',
+})
+db.shop.hasMany(db.order, {
+    foreignKey: 'orderShopId',
+    as: 'orders'
+})
+
+
+// product and shop relation 
+db.product.belongsTo(db.shop, {
+    foreignKey: 'productShopId',
+    as: 'shop',
+})
+db.shop.hasMany(db.product, {
+    foreignKey: 'productShopId',
+    as: 'products'
+})
+
+// category and shop relation 
+db.category.belongsTo(db.shop, {
+    foreignKey: 'categoryShopId',
+    as: 'shop',
+})
+db.shop.hasMany(db.category, {
+    foreignKey: 'categoryShopId',
+    as: 'categories'
+})
+
+
+// order and address relation 
+db.order.belongsTo(db.address, {
+    foreignKey: 'orderAddressId',
+    as: 'orderAddress',
+})
+db.address.hasMany(db.order, {
+    foreignKey: 'orderAddressId',
+    as: 'orders'
+})
 
 
 module.exports = db
