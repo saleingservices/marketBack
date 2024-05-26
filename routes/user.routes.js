@@ -1,0 +1,40 @@
+// const { authJwt } = require('../middleware')
+// const controller = require('../controllers/user.controller')
+module.exports = function (app) {
+
+	// app.post('/user/register/:id?', controller.register)
+	// app.post('/user/login/', controller.login)//
+	// app.post('/user/makeotp/', controller.otpPassword)
+	// app.post('/user/add/', [authJwt.verifyToken, permit.hasPermit('user_add')], controller.add)
+	// app.post('/user/verifyforgetpass/:id', controller.verifyForgotPass)
+	// app.post('/user/checkverify/:id', controller.checkVerify)
+	// app.post('/user/verfiyregister/', controller.verfiyRegister)
+	// app.post('/user/forgotpassword/', controller.forgotPassword)
+	// app.put('/user/setactive/:id', [authJwt.verifyToken, permit.hasPermit('user_edit')], controller.setActive)
+	// app.put('/user/changepassword/:id', [authJwt.verifyToken], controller.changePassword)
+	// app.put('/user/forgotpassword/changepassword/:id', controller.forgotChangePassword)
+	// app.put('/user/authchangepass/', [authJwt.verifyToken], controller.authChangePass)
+	// app.put('/user/edit/:id', [authJwt.verifyToken, permit.hasPermit('user_edit')], controller.edit)
+	// app.get('/user/logout/:id', [authJwt.verifyToken], controller.logOut)
+	// app.get('/user/logintoken/', [authJwt.verifyToken], controller.loginByToken)//
+	// app.get('/user/fullinfo/:id', [authJwt.verifyToken, permit.hasPermit('user_data')], controller.fullInfo)
+	// app.get('/user/infobymobile/:mobile', [authJwt.verifyToken], controller.userInfoByMobile)
+	// app.get('/user/searchbyquery/', [authJwt.verifyToken], controller.searchbByQuery)
+	// app.get('/user/searchbyprovider/', [authJwt.verifyToken, permit.hasPermit('presentationcondition_add')], controller.searchByProvider)
+	// app.get('/user/advancesearch/:newUser/:deleted/:offset?', [authJwt.verifyToken], controller.advanceSearch)
+	// app.get('/user/restore/:id', [authJwt.verifyToken, permit.hasPermit('user_restore')], controller.restore)
+	// app.get('/user/usersforrepresenter/:isNew?', [authJwt.verifyToken], controller.usersForRepresenter)
+	// app.delete('/user/fulldelete/:id', [authJwt.verifyToken, permit.hasPermit('user_delete')], controller.fullDelete)
+	// app.delete('/user/delete/:id', [authJwt.verifyToken, permit.hasPermit('user_delete')], controller.delete)
+	// // app.delete('/user/deleteall/', [authJwt.verifyToken, permit.hasPermit('user_deleteall')], controller.deleteAll)
+	// app.get('/user/hasbrand/:brandId', [authJwt.verifyToken, permit.hasPermit('user_data')], controller.hasBrand)
+	// app.post('/user/advancesearchbyquery/', [authJwt.verifyToken], controller.advanceSearchByQuery)
+	// app.get('/user/info/:id', [authJwt.verifyToken, permit.hasPermit('user_data')], controller.info)
+	// app.put('/user/setftoken',[authJwt.verifyToken],controller.setfireBaseToken)
+	// app.post('/user/activebyrepresent/:userId',[authJwt.verifyToken],controller.activeByRepresent)
+	// app.get('/user/searchbyqueryagent/', [authJwt.verifyToken], controller.searchbByQueryAgent)
+	// app.post('/user/citiesagents/', [authJwt.verifyToken], controller.citiesAgents)
+	// app.get('/user/representhavesediment',[authJwt.verifyToken],controller.SedimentRepresents)
+
+
+}
