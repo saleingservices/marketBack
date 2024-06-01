@@ -71,6 +71,14 @@ function DateFa8(_date){
   }
 
 
+  function persianNumberFix(_text){
+    return _text.replace(/[۰-۹]/g, d => '۰۱۲۳۴۵۶۷۸۹'.indexOf(d))
+  }
+
+
+
+  
+
   const funcs = {
     MakeVerify,
     FlatToNested,
@@ -78,6 +86,7 @@ function DateFa8(_date){
     CreateUUID,
     PriceValidation,
     DateFa8,
+    persianNumberFix
   }
   module.exports = funcs
   

@@ -2,7 +2,7 @@ const { authJwt } = require('../middleware')
 const controller = require('../controllers/user.controller')
 module.exports = function (app) {
 
-	app.post('/user/register/:id?', controller.register)
+	app.post('/user/register/', controller.register)
 	// app.post('/user/login/', controller.login)//
 	// app.post('/user/makeotp/', controller.otpPassword)
 	// app.post('/user/add/', [authJwt.verifyToken, permit.hasPermit('user_add')], controller.add)
