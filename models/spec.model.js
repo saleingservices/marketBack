@@ -25,6 +25,8 @@ module.exports = (connection, Sequelize) => {
 			}
         },   
     }, {
+        updatedAt: 'specUpdatedAt',
+        createdAt: 'specCreatedAt',
         indexes: [
             {
                 using: 'BTREE',

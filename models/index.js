@@ -35,8 +35,9 @@ db.state = require('./state.model.js')(connection, Sequelize)
 db.tag = require('./tag.model.js')(connection, Sequelize)
 // user table
 db.user = require('./user.model.js')(connection, Sequelize)
+// verify table
+db.verify = require('./verify.model.js')(connection, Sequelize)
 //--------------------------------------------
-
 
 // category relations
 db.category.hasMany(db.category, {
@@ -63,56 +64,56 @@ db.product.belongsToMany(db.category, {
 // product and tag relation product-tag
 db.tag.belongsToMany(db.product, {
     through: 'product_tag',
-    foreignKey: 'PT_tagId',
+    foreignKey: 'PT_TagId',
     as: 'products',
     timestamps: false
 })
 db.product.belongsToMany(db.tag, {
     through: 'product_tag',
-    foreignKey: 'PT_productId',
+    foreignKey: 'PT_ProductId',
     as: 'tags',
 })
 
 // product and spec relation product-tag
 db.spec.belongsToMany(db.product, {
     through: 'product_spec',
-    foreignKey: 'PS_productId',
+    foreignKey: 'PS_ProductId',
     as: 'products',
 })
 db.product.belongsToMany(db.spec, {
     through: 'product_spec',
-    foreignKey: 'PS_specId',
+    foreignKey: 'PS_SpecId',
     as: 'specs',
 })
 
 // product and publish relation product-tag
 db.productPublish.belongsTo(db.product, {
-    foreignKey: 'PP_productId',
+    foreignKey: 'PP_ProductId',
     as: 'products',
 })
 db.product.hasMany(db.productPublish, {
-    foreignKey: 'PP_productId',
+    foreignKey: 'PP_ProductId',
     as: 'publish'
 })
 
 // product and identity relation product-identity
 db.productIdentity.belongsTo(db.product, {
-    foreignKey: 'PI_productId',
+    foreignKey: 'PI_ProductId',
     as: 'products',
 })
 db.product.hasMany(db.productIdentity, {
-    foreignKey: 'PI_productId',
+    foreignKey: 'PI_ProductId',
     as: 'identities',
 })
 
 
 // order and orderDatail relation 
 db.orderDetail.belongsTo(db.order, {
-    foreignKey: 'OD_orderId',
+    foreignKey: 'OD_OrderId',
     as: 'order',
 })
 db.order.hasMany(db.orderDetail, {
-    foreignKey: 'OD_orderId',
+    foreignKey: 'OD_OrderId',
     as: 'details'
 })
 
@@ -155,23 +156,23 @@ db.city.belongsToMany(db.user, {
 // product and order relation order-detail
 db.order.belongsToMany(db.product, {
     through: 'order_detail',
-    foreignKey:'OD_orderId',
+    foreignKey:'OD_OrderId',
     as: 'products',
 })
 db.product.belongsToMany(db.order, {
     through: 'order_detail',
-    foreignKey:'OD_productId',
+    foreignKey:'OD_ProductId',
     as: 'orders',
 })
 
 
 // product and orderDatail relation 
 db.orderDetail.belongsTo(db.product, {
-    foreignKey: 'OD_productId',
+    foreignKey: 'OD_ProductId',
     as: 'product',
 })
 db.product.hasMany(db.orderDetail, {
-    foreignKey: 'OD_productId',
+    foreignKey: 'OD_ProductId',
     as: 'orderDetails'
 })
 

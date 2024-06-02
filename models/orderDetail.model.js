@@ -5,28 +5,28 @@ module.exports = (connection, Sequelize) => {
             autoIncrement: true,
             primaryKey: true
         },
-        OD_orderId: {
+        OD_OrderId: {
             type: Sequelize.INTEGER,
             allowNull: false
         },
-        OD_productId: {
+        OD_ProductId: {
             type: Sequelize.INTEGER,
             allowNull: false
         },
-        OD_price: {
+        OD_Price: {
             type: Sequelize.STRING,
             allowNull: false
         },
-        OD_discount: {
+        OD_Discount: {
             type: Sequelize.STRING,
         },
-        OD_count: {
+        OD_Count: {
             type: Sequelize.STRING,
         },
-        OD_rowPrice: {
+        OD_RowPrice: {
             type: Sequelize.STRING,
         },
-        OD_identity: {
+        OD_Identity: {
             type: Sequelize.STRING,
         },
         OD_DSC: {
@@ -34,6 +34,8 @@ module.exports = (connection, Sequelize) => {
         },
 
     }, {
+        updatedAt: 'OD_UpdatedAt',
+        createdAt: 'OD_CreatedAt',
         indexes: [
             {
                 using: 'BTREE',

@@ -5,20 +5,22 @@ module.exports = (connection, Sequelize) => {
             autoIncrement: true,
             primaryKey: true
         },
-        PI_productId: {
+        PI_ProductId: {
             type: Sequelize.INTEGER,
             allowNull: false
         },
-        PI_value: {
+        PI_Value: {
             type: Sequelize.STRING,
         },
-        PI_used: {
+        PI_Used: {
             type: Sequelize.INTEGER,
         },
-        PI_count: {
+        PI_Count: {
             type: Sequelize.INTEGER,
         },
     }, {
+        updatedAt: 'PI_UpdatedAt',
+        createdAt: 'PI_CreatedAt',
         indexes: [
             {
                 using: 'BTREE',

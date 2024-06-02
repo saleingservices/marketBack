@@ -32,6 +32,8 @@ module.exports = (connection, Sequelize) => {
             type: Sequelize.STRING,
         },
     }, {
+        updatedAt: 'orderUpdatedAt',
+        createdAt: 'orderCreatedAt',
         indexes: [
             {
                 using: 'BTREE',

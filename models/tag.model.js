@@ -9,14 +9,22 @@ module.exports = (connection, Sequelize) => {
             type: Sequelize.STRING,
             allowNull: false,
             set(value) {
-                this.setDataValue('tagText', value.trim().toLowerCase().replaceAll(' ','_'))
+                this.setDataValue('tagText', value.trim().toLowerCase().replaceAll(' ', '_'))
             },
             unique: {
-				args: true,
-				msg: 'این  عنوان قبلا استفاده شده است'
-			}
-        },   
+                args: true,
+                msg: 'این  عنوان قبلا استفاده شده است'
+            }
+        },
+        tagIsActive: {
+            type: Sequelize.BOOLEAN
+        },
+        tagUserId: {
+            type: Sequelize.UUID,
+        }
     }, {
+        updatedAt: 'tagUpdatedAt',
+        createdAt: 'tagCreatedAt',
         indexes: [
             {
                 using: 'BTREE',

@@ -14,7 +14,9 @@ const ResponseCode = {
     'error_input': 1,
     'duplicate_record': 2,
     'not_found': 3,
-    'internal_error': 4
+    'internal_error': 4,
+    'expired': 5,
+    'notAccess': 6,
 }
 const ResponseType = {
     'error': 'error',
@@ -30,6 +32,7 @@ const ResponseMessages = {
     'created': 'با موفقیت ایجاد شد',
     // user
     'user_is_not_active': 'کاربر فعال نمی باشد',
+    'user_password_not_valid':'رمز عبور یا نام کاربری صحیح نمی باشد',
     'user_is_active': 'کاربر فعال می باشد',
     'user_is_not_found': 'کاربری بااین مشخصات یافت نشد',
     'user_is_exist': 'کاربر قبلا ثبت نام شده است',
@@ -40,6 +43,7 @@ const ResponseMessages = {
     // files 
     'select_file': 'یک فایل را انتخاب کنید',
     // otp && verify
+    'otp_expired': 'زمان استفاده از رمز عبور یکبار مصرف به پایان رسیده',
     'otp_send_error': 'ارسال رمز عبور یکبار مصرف با مشکل مواجه شد',
     'otp_generate_error': 'تولید رمز عبور با شکست مواجه شد',
     'verification_code_error': 'خطا در ارسال کد تایید',

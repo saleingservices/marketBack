@@ -16,6 +16,8 @@ module.exports = (connection, Sequelize) => {
             type: Sequelize.TEXT,
         },
     }, {
+        updatedAt: 'shopUpdatedAt',
+        createdAt: 'shopCreatedAt',
         indexes: [
             {
                 using: 'BTREE',

@@ -5,23 +5,25 @@ module.exports = (connection, Sequelize) => {
             autoIncrement: true,
             primaryKey: true
         },
-        PS_productId: {
+        PS_ProductId: {
             type: Sequelize.INTEGER,
             allowNull: false,           
         },        
-        PS_specId: {
+        PS_SpecId: {
             type: Sequelize.STRING,
             allowNull: false,           
         },  
-        PS_specValue: {
+        PS_SpecValue: {
             type: Sequelize.STRING,
             allowNull: false,           
         },   
-        PS_extraPrice: {
+        PS_ExtraPrice: {
             type: Sequelize.STRING,
             defaultValue:'0'          
         },   
     }, {
+        updatedAt: 'PS_UpdatedAt',
+        createdAt: 'PS_CreatedAt',
         indexes: [
             {
                 using: 'BTREE',

@@ -40,6 +40,8 @@ module.exports = (connection, Sequelize) => {
         },
     },
         {
+            updatedAt: 'productUpdatedAt',
+            createdAt: 'productCreatedAt',
             indexes: [
                 {
                     using: 'BTREE',

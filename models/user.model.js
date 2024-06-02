@@ -49,6 +49,8 @@ module.exports = (connection, Sequelize) => {
         }
     },
         {
+            updatedAt: 'userUpdatedAt',
+            createdAt: 'userCreatedAt',
             indexes: [
                 {
                     using: 'BTREE',
@@ -64,7 +66,7 @@ module.exports = (connection, Sequelize) => {
                 },
                 {
                     unique: true,
-                    fields: ['userShopId','userMobile']
+                    fields: ['userShopId', 'userMobile']
                 },
 
             ]
@@ -81,6 +83,7 @@ module.exports = (connection, Sequelize) => {
     //     if (!record._previousDataValues.isActive && record.isActive)
     //         await sms.SendNotifyActiveUser(record.mobile)
     // })
-   
+
+
     return User
 }

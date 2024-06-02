@@ -20,6 +20,8 @@ module.exports = (connection, Sequelize) => {
             allowNull: false
         }
     }, {
+        updatedAt: 'addressUpdatedAt',
+        createdAt: 'addressCreatedAt',
         indexes: [
             {
                 using: 'BTREE',

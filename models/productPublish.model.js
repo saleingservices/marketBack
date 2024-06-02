@@ -5,21 +5,23 @@ module.exports = (connection, Sequelize) => {
             autoIncrement: true,
             primaryKey: true
         },
-        PP_productId: {
+        PP_ProductId: {
             type: Sequelize.INTEGER,
             allowNull: false,
             unique: true,
         },
-        PP_startTime: {
+        PP_StartTime: {
             type: Sequelize.STRING,
         },
-        PP_endTime: {
+        PP_EndTime: {
             type: Sequelize.STRING,
         },
-        PP_effect: {
+        PP_Effect: {
             type: Sequelize.INTEGER,
         },
     }, {
+        updatedAt: 'PP_UpdatedAt',
+        createdAt: 'PP_CreatedAt',
         indexes: [
             {
                 using: 'BTREE',

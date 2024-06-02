@@ -10,6 +10,7 @@ module.exports = (connection, Sequelize) => {
             allowNull: false
         }
     }, {
+        timestamps: false,
         indexes: [
             {
                 using: 'BTREE',
