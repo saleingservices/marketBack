@@ -28,6 +28,11 @@ async function MakeToken(_req, _result) {
 }
 
 
+function checkPassword(_inputPassword,_password){
+    let passwordIsValid = bcrypt.compareSync(_inputPassword,_password)
+    return passwordIsValid
+}
+
 async function RegisterUser(_userData){
     let user = await User.create(_userData)
     return user
@@ -35,6 +40,7 @@ async function RegisterUser(_userData){
 
 const userFuncs = {
     MakeToken,
-    RegisterUser
+    RegisterUser,
+    checkPassword
 }
 module.exports = userFuncs

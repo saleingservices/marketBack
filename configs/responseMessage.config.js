@@ -50,6 +50,7 @@ const ResponseMessages = {
     'verification_code_not_match': 'کد تایید تطابق ندارد',
     // authorized
     'no_access_permission': 'دسترسی وجود ندارد',
+    'password_not_valid':'رمز عبور صحیح نمی باشد',
     // server error
     'server_error': 'خطا: خطا در سمت سرور',
 }

@@ -3,7 +3,8 @@ const controller = require('../controllers/user.controler')
 module.exports = function (app) {
 
 	app.post('/user/register/', controller.register)
-	// app.post('/user/login/', controller.login)//
+	app.post('/user/login/', controller.login)//
+	app.put('/user/changepassword/:id', [authJwt.verifyToken], controller.changePassword)
 	// app.post('/user/makeotp/', controller.otpPassword)
 	// app.post('/user/add/', [authJwt.verifyToken, permit.hasPermit('user_add')], controller.add)
 	// app.post('/user/verifyforgetpass/:id', controller.verifyForgotPass)
@@ -11,7 +12,6 @@ module.exports = function (app) {
 	// app.post('/user/verfiyregister/', controller.verfiyRegister)
 	// app.post('/user/forgotpassword/', controller.forgotPassword)
 	// app.put('/user/setactive/:id', [authJwt.verifyToken, permit.hasPermit('user_edit')], controller.setActive)
-	// app.put('/user/changepassword/:id', [authJwt.verifyToken], controller.changePassword)
 	// app.put('/user/forgotpassword/changepassword/:id', controller.forgotChangePassword)
 	// app.put('/user/authchangepass/', [authJwt.verifyToken], controller.authChangePass)
 	// app.put('/user/edit/:id', [authJwt.verifyToken, permit.hasPermit('user_edit')], controller.edit)

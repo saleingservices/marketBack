@@ -3,6 +3,7 @@ const UserFuncs = require('../functions/userFuncs')
 const funcs = require('../functions/funcs')
 const { HttpStatusCode, ResponseType, ResponseCode, ResponseMessages } = require('../configs/responseMessage.config')
 const { verify } = require('jsonwebtoken')
+const userFuncs = require('../functions/userFuncs')
 
 
 // register new user
@@ -60,7 +61,7 @@ exports.login = (_req, _res) => {
                 funcs.Response400(_res, ResponseCode.expired, ResponseMessages.otp_expired)
             }
             else {
-              let passwordIsValid = bcrypt.compareSync(_req.body.password, _result.password)
+              let passwordIsValid = userFuncs.checkPassword(_req.body.userPassword, _result.userPassword)
               if (passwordIsValid) {
                 let token = await UserFuncs.MakeToken(_req, _result)
                 let data = [{ token, userInfo: result }]
@@ -74,6 +75,26 @@ exports.login = (_req, _res) => {
         }
         else
           funcs.Response400(_res, ResponseCode.notAccess, ResponseMessages.user_password_not_valid)
+      })
+      .catch(error => {
+        funcs.Response500(_res)
+      })
+  }
+  else
+    funcs.Response400(_res, ResponseCode.error_input, ResponseMessages.error_input)
+}
+
+exports.changePassword = (_req, _res) => {
+  if (_req.body.userPassword && _req.body.newPassword && _req.body.userPassword===_req.body.newPassword) {
+    User.findByPk(_req.params.id)
+      .then(async (_result) => {
+        let passwordIsValid = userFuncs.checkPassword(_req.body.userPassword, _result.userPassword)
+        if (passwordIsValid) {
+          _result.userPassword = _req.body.userPassword
+          await _result.save().then(() => { funcs.Response200(_res, []) })
+        }
+        else
+          funcs.Response400(_res, ResponseCode.notAccess, ResponseMessages.password_not_valid)
       })
       .catch(error => {
         funcs.Response500(_res)
